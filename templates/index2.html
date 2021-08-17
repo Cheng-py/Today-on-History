@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>历史上的今天</title>
+    <style>
+        #events{
+            width:590px;
+            margin:0 auto;
+            background:#EBEBED;
+
+        }
+        .year{
+            margin-left:-88px;
+            font-size:25px;
+        }
+        #time{
+            align=center;
+            width:550px;
+
+        }
+        .title{
+            font-size:16px;
+        }
+        .desc{
+            font-size:14px;
+            color:#999999;
+            margin-top:10px;
+        }
+        .event{
+            width:510px;
+        }
+
+        dd{
+            padding:15px;
+
+        }
+        dl{
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            border-radius: 25px;
+        }
+        #time{
+            margin-left:100px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="events">
+
+
+        <dl class="dl">
+            <div id="time" ></div>
+            {% for data in datas %}
+
+            <dd>
+                <div class="year">{{ data['year'] }}年</div>
+                <div class="event">
+                    <div class="title">{{ data['title'] }}</div>
+                    <div class="desc">{{ data['desc'] }}...<a href="{{ data['link'] }}">更多</a></div>
+
+                </div>
+            </dd>
+
+            {% endfor %}
+        </dl>
+
+    </div>
+
+<script type="text/javascript">
+function time(){
+var vWeek,vWeek_s,vDay;
+vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+var date =  new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+hours = date.getHours();
+minutes = date.getMinutes();
+seconds = date.getSeconds();
+vWeek_s = date.getDay();
+document.getElementById("time").innerHTML = year + "年" +month + "月" + day + "日" + "\t" + hours + ":" + minutes +":" + seconds + "\t" + vWeek[vWeek_s]+"\n历史上的今天" ;
+
+};
+setInterval("time()",1000);
+
+</script>
+
+</body>
+</html>

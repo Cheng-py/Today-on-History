@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>历史上的今天</title>
+<style>
+    a{
+        color : black ;
+        text-decoration: none;
+    }
+</style>        
+</head>
+<body>
+<div id="time" align="center"></div>
+<script type="text/javascript">
+function time(){
+var vWeek,vWeek_s,vDay;
+vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+var date =  new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+hours = date.getHours();
+minutes = date.getMinutes();
+seconds = date.getSeconds();
+vWeek_s = date.getDay();
+document.getElementById("time").innerHTML = year + "年" + month + "月" + day + "日" + "\t" + hours + ":" + minutes +":" + seconds + "\t" + vWeek[vWeek_s]+"\n历史上的今天" ;
+
+};
+setInterval("time()",1000);
+
+</script>
+<table border="8x" align="center">
+    <thead align="center"></thead>
+    {% for i in datas %}
+        <tr>
+            <td>{{ i['year']+'年' }}</td>
+            <td>{{ i['title'] }}</td>
+            <td>{{ i['type'] }}</td>
+            <td><a href="{{ i['link'] }}">更多</a></td>
+        </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>
