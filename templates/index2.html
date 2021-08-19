@@ -46,6 +46,7 @@
 
     </style>
 </head>
+
 <body>
 <div id="events">
 
@@ -53,22 +54,20 @@
         <dl class="dl">
             <div id="time" ></div>
             {% for data in datas %}
-
             <dd>
                 <div class="year">{{ data['year'] }}年</div>
                 <div class="event">
                     <div class="title">{{ data['title'] }}</div>
                     <div class="desc">{{ data['desc'] }}...<a href="{{ data['link'] }}">更多</a></div>
-
                 </div>
             </dd>
-
             {% endfor %}
         </dl>
 
     </div>
 
 <script type="text/javascript">
+<!--展示当前的详细时间-->
 function time(){
 var vWeek,vWeek_s,vDay;
 vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];

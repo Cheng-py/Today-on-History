@@ -1,7 +1,7 @@
 from Scrapy_ import returnApi
 import json
-from flask import Flask,render_template,url_for,request
-import time
+from flask import Flask,render_template
+
 app = Flask(__name__)
 datas = json.loads(returnApi())
 @app.route("/")
